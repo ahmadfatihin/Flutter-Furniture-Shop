@@ -32,7 +32,7 @@ class _HomeHeaderState extends State<HomeHeader> {
         Padding(
           padding: EdgeInsets.only(left: 16),
           child: Text(
-            'Discover the most \n modern furniture',
+            'Discover the most \nmodern furniture',
             style: medium.copyWith(fontSize: 22),
           ),
         ),

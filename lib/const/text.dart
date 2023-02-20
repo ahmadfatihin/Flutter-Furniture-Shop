@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-TextStyle regular = TextStyle(
+TextStyle regular = const TextStyle(
   fontWeight: FontWeight.w400,
 );
 
-TextStyle medium = TextStyle(
+TextStyle medium = const TextStyle(
   fontWeight: FontWeight.w500,
 );
 
-TextStyle semiBold = TextStyle(
+TextStyle semiBold = const TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-TextStyle bold = TextStyle(
+TextStyle bold = const TextStyle(
   fontWeight: FontWeight.w700,
 );
