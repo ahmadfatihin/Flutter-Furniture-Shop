@@ -6,11 +6,11 @@ ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     primaryColor: black,
     scaffoldBackgroundColor: whiteBackground,
-    textTheme: GoogleFonts.outfitTextTheme(),
+    textTheme: GoogleFonts.openSansTextTheme(),
     appBarTheme: AppBarTheme(
       backgroundColor: whiteBackground,
       elevation: 0,
-      titleTextStyle: GoogleFonts.outfit(fontSize: 18, color: black),
+      titleTextStyle: GoogleFonts.playfairDisplay(fontSize: 18, color: black),
     ),
   );
 }

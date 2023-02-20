@@ -45,16 +45,15 @@ class _HomeHeaderState extends State<HomeHeader> {
               children: List.generate(
                   _menuItems.length,
                   (index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: InkWell(
                           onTap: () {
                             setState(() {
                               _selectedIndex = index;
                             });
-                            print(_selectedIndex);
                           },
                           child: Container(
-                              width: 70,
+                              width: 90,
                               height: 33,
                               decoration: BoxDecoration(
                                 color: _selectedIndex == index
@@ -66,6 +65,7 @@ class _HomeHeaderState extends State<HomeHeader> {
                                   child: Text(
                                 _menuItems[index],
                                 style: medium.copyWith(
+                                    fontSize: 12,
                                     color: _selectedIndex == index
                                         ? whiteBackground
                                         : black),

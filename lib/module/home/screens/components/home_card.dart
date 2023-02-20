@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/const/size.dart';
 import 'package:furniture_shop/const/text.dart';
 import 'package:furniture_shop/gen/assets.gen.dart';
 
 class HomeCard extends StatelessWidget {
-  const HomeCard({super.key});
+  final Map<String, dynamic> cardData;
+
+  const HomeCard({Key? key, required this.cardData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,10 @@ class HomeCard extends StatelessWidget {
         color: whiteBackground,
         boxShadow: [
           BoxShadow(
-            color: grey.withOpacity(0.5),
+            color: grey.withOpacity(0.3),
             spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3),
+            blurRadius: 3,
+            offset: Offset(1, 3),
           ),
         ],
       ),
@@ -31,19 +31,69 @@ class HomeCard extends StatelessWidget {
           ClipRRect(
               borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              child: Image.asset(Assets.images.furniture1.path)),
+              child: Image.asset(cardData['imagePath'])),
           Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Stylish Chair",
-                  style: medium.copyWith(fontSize: 14),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    cardData['title'],
+                    style: medium.copyWith(fontSize: 14),
+                  ),
                 ),
-                Row(
-                  children: [Text("\$170")],
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10, right: 10, bottom: 10, top: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(cardData['price']),
+                      Row(
+                        children: [
+                          Image.asset(
+                            Assets.icons.star.path,
+                            height: 15,
+                            width: 15,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            cardData['rating'],
+                            style: regular.copyWith(fontSize: 12),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 )
-              ])
+              ]),
+          Positioned(
+            left: 10,
+            top: 10,
+            child: Container(
+              height: 34,
+              width: 34,
+              decoration: BoxDecoration(
+                borderRadius: kDefaultBorderRadius / 2,
+                color: white,
+                boxShadow: [
+                  BoxShadow(
+                    color: grey.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 3,
+                    offset: Offset(1, 3),
+                  ),
+                ],
+              ),
+              child: Icon(
+                Icons.favorite_outline_rounded,
+                color: red,
+              ),
+            ),
+          )
         ],
       ),
     );

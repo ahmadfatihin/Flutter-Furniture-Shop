@@ -15,6 +15,22 @@ class $AssetsIconsGen {
   /// File path: assets/icons/menu.png
   AssetGenImage get menu => const AssetGenImage('assets/icons/menu.png');
 
+  /// File path: assets/icons/navbar_cart.png
+  AssetGenImage get navbarCart =>
+      const AssetGenImage('assets/icons/navbar_cart.png');
+
+  /// File path: assets/icons/navbar_home.png
+  AssetGenImage get navbarHome =>
+      const AssetGenImage('assets/icons/navbar_home.png');
+
+  /// File path: assets/icons/navbar_person.png
+  AssetGenImage get navbarPerson =>
+      const AssetGenImage('assets/icons/navbar_person.png');
+
+  /// File path: assets/icons/navbar_star.png
+  AssetGenImage get navbarStar =>
+      const AssetGenImage('assets/icons/navbar_star.png');
+
   /// File path: assets/icons/search.png
   AssetGenImage get search => const AssetGenImage('assets/icons/search.png');
 
@@ -22,7 +38,8 @@ class $AssetsIconsGen {
   AssetGenImage get star => const AssetGenImage('assets/icons/star.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [menu, search, star];
+  List<AssetGenImage> get values =>
+      [menu, navbarCart, navbarHome, navbarPerson, navbarStar, search, star];
 }
 
 class $AssetsImagesGen {
