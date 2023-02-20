@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:furniture_shop/const/text.dart';
+import 'package:furniture_shop/module/home/screens/components/home_card.dart';
 
 class HomeRecommended extends StatelessWidget {
   const HomeRecommended({super.key});
@@ -16,7 +17,8 @@ class HomeRecommended extends StatelessWidget {
             'Recommended Furnitures',
             style: medium.copyWith(fontSize: 16),
           ),
-        )
+        ),
+        HomeCard()
       ],
     );
   }

@@ -9,22 +9,50 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/menu.png
+  AssetGenImage get menu => const AssetGenImage('assets/icons/menu.png');
+
+  /// File path: assets/icons/search.png
+  AssetGenImage get search => const AssetGenImage('assets/icons/search.png');
+
+  /// File path: assets/icons/star.png
+  AssetGenImage get star => const AssetGenImage('assets/icons/star.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [menu, search, star];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/menu.png
-  AssetGenImage get menu => const AssetGenImage('assets/images/menu.png');
+  /// File path: assets/images/furniture1.png
+  AssetGenImage get furniture1 =>
+      const AssetGenImage('assets/images/furniture1.png');
 
-  /// File path: assets/images/search.png
-  AssetGenImage get search => const AssetGenImage('assets/images/search.png');
+  /// File path: assets/images/furniture2.png
+  AssetGenImage get furniture2 =>
+      const AssetGenImage('assets/images/furniture2.png');
+
+  /// File path: assets/images/furniture3.png
+  AssetGenImage get furniture3 =>
+      const AssetGenImage('assets/images/furniture3.png');
+
+  /// File path: assets/images/furniture4.png
+  AssetGenImage get furniture4 =>
+      const AssetGenImage('assets/images/furniture4.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [menu, search];
+  List<AssetGenImage> get values =>
+      [furniture1, furniture2, furniture3, furniture4];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

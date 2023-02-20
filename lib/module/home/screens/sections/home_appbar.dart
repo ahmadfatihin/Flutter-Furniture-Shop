@@ -1,4 +1,3 @@
-
 import 'package:furniture_shop/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,17 +17,20 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: IconButton(
         icon: ImageIcon(
-          AssetImage(Assets.images.menu.path),
+          AssetImage(Assets.icons.menu.path),
           color: black,
         ),
         onPressed: () {},
       ),
-      title: Text("Home"),
+      title: Text(
+        "Home",
+        style: bold.copyWith(fontSize: 18),
+      ),
       actions: [
         Padding(
           padding: EdgeInsets.only(right: 16),
           child: ImageIcon(
-            AssetImage(Assets.images.search.path),
+            AssetImage(Assets.icons.search.path),
             color: black,
           ),
         ),
