@@ -24,6 +24,8 @@ class DetailScreen extends StatelessWidget {
             headerSliverBuilder: (BuildContext context, bool inner) {
               return [
                 SliverAppBar(
+                  pinned: true,
+                  backgroundColor: whiteBackground,
                   expandedHeight: MediaQuery.of(context).size.height * 0.4,
                   leading: Padding(
                     padding: const EdgeInsets.all(10),
@@ -82,6 +84,10 @@ class DetailScreen extends StatelessWidget {
                 )
               ];
             },
-            body: DetailContent()));
+            body: DetailContent(
+              title: cardData["title"],
+              price: cardData["price"],
+              rating: cardData["rating"],
+            )));
   }
 }

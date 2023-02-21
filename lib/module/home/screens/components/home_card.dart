@@ -28,10 +28,14 @@ class HomeCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              child: Image.asset(cardData['imagePath'])),
+          Hero(
+            tag: cardData['title'],
+            child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20)),
+                child: Image.asset(cardData['imagePath'])),
+          ),
           Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +65,7 @@ class HomeCard extends StatelessWidget {
                             width: 8,
                           ),
                           Text(
-                            cardData['rating'],
+                            cardData['rating'].toString(),
                             style: regular.copyWith(fontSize: 12),
                           )
                         ],
