@@ -5,3 +5,4 @@ Color white = const Color(0xFFFFFFFF);
 Color black = const Color(0xFF4A4543);
 Color grey = const Color(0xFF9A9390);
 Color red = const Color(0xFFEE3127);
+Color yellow = const Color(0xFFEEA427);

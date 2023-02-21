@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shop/const/text.dart';
 import 'package:furniture_shop/module/home/screens/sections/home_appbar.dart';
 import 'package:furniture_shop/module/home/screens/sections/home_header.dart';
 import 'package:furniture_shop/module/home/screens/sections/home_recommended.dart';
@@ -9,19 +8,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: HomeAppbar(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HomeHeader(),
-            SizedBox(
-              height: 30,
-            ),
-            Expanded(child: HomeRecommended())
-          ],
-        ),
+    return Scaffold(
+      appBar: const HomeAppbar(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          HomeHeader(),
+          SizedBox(
+            height: 30,
+          ),
+          Expanded(child: HomeRecommended())
+        ],
       ),
     );
   }

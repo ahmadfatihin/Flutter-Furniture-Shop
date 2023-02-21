@@ -24,9 +24,13 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     DetailRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const DetailScreen(),
+        child: DetailScreen(
+          key: args.key,
+          cardData: args.cardData,
+        ),
       );
     },
   };
@@ -58,12 +62,34 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [DetailScreen]
-class DetailRoute extends PageRouteInfo<void> {
-  const DetailRoute()
-      : super(
+class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
+  DetailRoute({
+    Key? key,
+    required Map<String, dynamic> cardData,
+  }) : super(
           DetailRoute.name,
           path: '/detail-screen',
+          args: DetailRouteArgs(
+            key: key,
+            cardData: cardData,
+          ),
         );
 
   static const String name = 'DetailRoute';
+}
+
+class DetailRouteArgs {
+  const DetailRouteArgs({
+    this.key,
+    required this.cardData,
+  });
+
+  final Key? key;
+
+  final Map<String, dynamic> cardData;
+
+  @override
+  String toString() {
+    return 'DetailRouteArgs{key: $key, cardData: $cardData}';
+  }
 }
