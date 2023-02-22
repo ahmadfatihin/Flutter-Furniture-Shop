@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/module/detail/enum/color_enum.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SelectColor extends StatefulWidget {
   const SelectColor({super.key});
@@ -13,6 +14,7 @@ class SelectColor extends StatefulWidget {
 
 class _SelectColorState extends State<SelectColor> {
   ColorVariant? _color = ColorVariant.blue;
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,8 @@ class _SelectColorState extends State<SelectColor> {
                 onChanged: (ColorVariant? value) {
                   setState(() {
                     _color = value;
+                    box.write('color', value.toString());
+                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -38,6 +42,19 @@ class _SelectColorState extends State<SelectColor> {
                 onChanged: (ColorVariant? value) {
                   setState(() {
                     _color = value;
+                    box.write('color', value.toString());
+                    print(box.read('color'));
+                  });
+                }),
+            Radio(
+                value: ColorVariant.grey,
+                fillColor: MaterialStateColor.resolveWith((states) => grey),
+                groupValue: _color,
+                onChanged: (ColorVariant? value) {
+                  setState(() {
+                    _color = value;
+                    box.write('color', value.toString());
+                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -48,6 +65,8 @@ class _SelectColorState extends State<SelectColor> {
                 onChanged: (ColorVariant? value) {
                   setState(() {
                     _color = value;
+                    box.write('color', value.toString());
+                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -58,6 +77,8 @@ class _SelectColorState extends State<SelectColor> {
                 onChanged: (ColorVariant? value) {
                   setState(() {
                     _color = value;
+                    box.write('color', value.toString());
+                    print(box.read('color'));
                   });
                 }),
           ],

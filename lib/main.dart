@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shop/const/themes.dart';
 import 'package:furniture_shop/module/home/screens/home_screen.dart';
 import 'package:furniture_shop/routes/routes.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(MyApp());
 }
 

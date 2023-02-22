@@ -34,7 +34,12 @@ class HomeCard extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(20),
                     topLeft: Radius.circular(20)),
-                child: Image.asset(cardData['imagePath'])),
+                child: Image.asset(
+                  cardData['imagePath'],
+                  width: 200,
+                  height: 145,
+                  fit: BoxFit.cover,
+                )),
           ),
           Column(
               mainAxisAlignment: MainAxisAlignment.end,

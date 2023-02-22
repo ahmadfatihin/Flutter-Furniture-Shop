@@ -15,16 +15,22 @@ class HomeRecommended extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> homeCardData = [
       {
+        "imagePath": Assets.images.sofaYellow.path,
+        "title": "Cozy Sofa",
+        "price": "\$270",
+        "rating": 3.6,
+      },
+      {
         "imagePath": Assets.images.furniture1.path,
         "title": "Stylish Chair",
         "price": "\$170",
-        "rating": 4.7,
+        "rating": 5.0,
       },
       {
         "imagePath": Assets.images.furniture2.path,
         "title": "Modern Sofa",
         "price": "\$350",
-        "rating": 4.9,
+        "rating": 2.72,
       },
       {
         "imagePath": Assets.images.furniture3.path,
@@ -36,7 +42,7 @@ class HomeRecommended extends StatelessWidget {
         "imagePath": Assets.images.furniture4.path,
         "title": "Vintage Cabinet",
         "price": "\$450",
-        "rating": 4.8,
+        "rating": 1.0,
       },
     ];
     return Column(

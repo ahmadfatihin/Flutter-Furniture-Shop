@@ -26,7 +26,7 @@ class DetailScreen extends StatelessWidget {
                 SliverAppBar(
                   pinned: true,
                   backgroundColor: whiteBackground,
-                  expandedHeight: MediaQuery.of(context).size.height * 0.4,
+                  expandedHeight: MediaQuery.of(context).size.height * 0.5,
                   leading: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Container(

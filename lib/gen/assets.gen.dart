@@ -61,9 +61,38 @@ class $AssetsImagesGen {
   AssetGenImage get furniture4 =>
       const AssetGenImage('assets/images/furniture4.png');
 
+  /// File path: assets/images/sofa_grey.jpeg
+  AssetGenImage get sofaGrey =>
+      const AssetGenImage('assets/images/sofa_grey.jpeg');
+
+  /// File path: assets/images/sofa_orange.jpg
+  AssetGenImage get sofaOrange =>
+      const AssetGenImage('assets/images/sofa_orange.jpg');
+
+  /// File path: assets/images/sofa_purple.jpeg
+  AssetGenImage get sofaPurple =>
+      const AssetGenImage('assets/images/sofa_purple.jpeg');
+
+  /// File path: assets/images/sofa_red.jpeg
+  AssetGenImage get sofaRed =>
+      const AssetGenImage('assets/images/sofa_red.jpeg');
+
+  /// File path: assets/images/sofa_yellow.png
+  AssetGenImage get sofaYellow =>
+      const AssetGenImage('assets/images/sofa_yellow.png');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [furniture1, furniture2, furniture3, furniture4];
+  List<AssetGenImage> get values => [
+        furniture1,
+        furniture2,
+        furniture3,
+        furniture4,
+        sofaGrey,
+        sofaOrange,
+        sofaPurple,
+        sofaRed,
+        sofaYellow
+      ];
 }
 
 class Assets {
