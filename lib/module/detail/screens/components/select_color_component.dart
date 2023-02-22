@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/module/detail/enum/color_enum.dart';
+import 'package:furniture_shop/module/detail/providers/color_providers.dart';
 import 'package:get_storage/get_storage.dart';
 
-class SelectColor extends StatefulWidget {
+class SelectColor extends ConsumerStatefulWidget {
   const SelectColor({super.key});
 
   @override
-  State<SelectColor> createState() => _SelectColorState();
+  ConsumerState<SelectColor> createState() => _SelectColorState();
 }
 
-class _SelectColorState extends State<SelectColor> {
+class _SelectColorState extends ConsumerState<SelectColor> {
   ColorVariant? _color = ColorVariant.blue;
   final box = GetStorage();
 
@@ -29,6 +31,7 @@ class _SelectColorState extends State<SelectColor> {
                 fillColor: MaterialStateColor.resolveWith((states) => red),
                 groupValue: _color,
                 onChanged: (ColorVariant? value) {
+                  ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
                     box.write('color', value.toString());
@@ -40,10 +43,9 @@ class _SelectColorState extends State<SelectColor> {
                 fillColor: MaterialStateColor.resolveWith((states) => yellow),
                 groupValue: _color,
                 onChanged: (ColorVariant? value) {
+                  ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
-                    box.write('color', value.toString());
-                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -51,10 +53,9 @@ class _SelectColorState extends State<SelectColor> {
                 fillColor: MaterialStateColor.resolveWith((states) => grey),
                 groupValue: _color,
                 onChanged: (ColorVariant? value) {
+                  ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
-                    box.write('color', value.toString());
-                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -63,10 +64,9 @@ class _SelectColorState extends State<SelectColor> {
                     MaterialStateColor.resolveWith((states) => Colors.orange),
                 groupValue: _color,
                 onChanged: (ColorVariant? value) {
+                  ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
-                    box.write('color', value.toString());
-                    print(box.read('color'));
                   });
                 }),
             Radio(
@@ -75,6 +75,7 @@ class _SelectColorState extends State<SelectColor> {
                     MaterialStateColor.resolveWith((states) => Colors.purple),
                 groupValue: _color,
                 onChanged: (ColorVariant? value) {
+                  ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
                     box.write('color', value.toString());

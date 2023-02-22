@@ -18,7 +18,6 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(cardData);
     return Scaffold(
         body: NestedScrollView(
             headerSliverBuilder: (BuildContext context, bool inner) {

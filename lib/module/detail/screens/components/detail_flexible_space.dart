@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:furniture_shop/const/colors.dart';
+import 'package:furniture_shop/module/detail/providers/color_providers.dart';
 import 'package:get_storage/get_storage.dart';
 
-class DetailFlexibleSpace extends StatelessWidget {
+import '../../../../gen/assets.gen.dart';
+import '../../enum/color_enum.dart';
+
+class DetailFlexibleSpace extends ConsumerWidget {
   final String title;
   final String imagePath;
   const DetailFlexibleSpace({
@@ -15,8 +18,16 @@ class DetailFlexibleSpace extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Map<ColorVariant, dynamic> imageVariant = {
+      ColorVariant.red: Assets.images.sofaRed.path,
+      ColorVariant.yellow: Assets.images.sofaYellow.path,
+      ColorVariant.grey: Assets.images.sofaGrey.path,
+      ColorVariant.orange: Assets.images.sofaOrange.path,
+      ColorVariant.purple: Assets.images.sofaPurple.path,
+    };
     final box = GetStorage();
+    final color = ref.watch(colorProvider);
 
     return FlexibleSpaceBar(
       collapseMode: CollapseMode.pin,
@@ -28,11 +39,16 @@ class DetailFlexibleSpace extends StatelessWidget {
             right: 0,
             bottom: 0,
             child: Hero(
-              tag: title ?? "",
-              child: Image.asset(
-                imagePath ?? "",
-                fit: BoxFit.cover,
-              ),
+              tag: title,
+              child: imagePath == Assets.images.sofaYellow.path
+                  ? Image.asset(
+                      imageVariant[color] ?? imagePath,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      imagePath,
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
           Positioned(
@@ -58,7 +74,6 @@ class DetailFlexibleSpace extends StatelessWidget {
               ),
             ),
           ),
-          Center(child: Text(box.read('color').toString())),
         ],
       ),
     );
