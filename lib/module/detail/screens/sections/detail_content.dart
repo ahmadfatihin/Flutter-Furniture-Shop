@@ -1,12 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/const/text.dart';
-import 'package:furniture_shop/gen/assets.gen.dart';
 import 'package:furniture_shop/module/detail/screens/components/select_color_component.dart';
+import 'package:furniture_shop/module/detail/screens/components/select_quantity_component.dart';
 
 import '../../../../const/size.dart';
 
@@ -76,14 +74,12 @@ class DetailContent extends StatelessWidget {
           Padding(
               padding: padding,
               child: Column(
-                children: [
+                children: const [
                   SelectColor(),
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [Text("Select Quantity :")],
-                  )
+                  SelectQuantity()
                 ],
               )),
           SizedBox(

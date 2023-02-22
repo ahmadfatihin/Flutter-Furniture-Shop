@@ -16,7 +16,7 @@ class HomeRecommended extends StatelessWidget {
     final List<Map<String, dynamic>> homeCardData = [
       {
         "imagePath": Assets.images.sofaYellow.path,
-        "title": "Cozy Sofa",
+        "title": "Ini Sofa",
         "price": "\$270",
         "rating": 3.6,
       },

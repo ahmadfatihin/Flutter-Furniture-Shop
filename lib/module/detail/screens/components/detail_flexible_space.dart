@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:furniture_shop/const/colors.dart';
-import 'package:furniture_shop/module/detail/providers/color_providers.dart';
+import 'package:furniture_shop/module/detail/providers/color_provider.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../../gen/assets.gen.dart';
