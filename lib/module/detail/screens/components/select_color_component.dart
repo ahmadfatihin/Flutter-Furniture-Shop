@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/module/detail/enum/color_enum.dart';
 import 'package:furniture_shop/module/detail/providers/color_provider.dart';
-import 'package:get_storage/get_storage.dart';
 
 class SelectColor extends ConsumerStatefulWidget {
   const SelectColor({super.key});
@@ -13,11 +12,11 @@ class SelectColor extends ConsumerStatefulWidget {
 }
 
 class _SelectColorState extends ConsumerState<SelectColor> {
-  ColorVariant? _color = ColorVariant.blue;
-  final box = GetStorage();
+  ColorVariant? _color;
 
   @override
   Widget build(BuildContext context) {
+    _color = ref.watch(colorProvider);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -32,7 +31,6 @@ class _SelectColorState extends ConsumerState<SelectColor> {
                   ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
-                    box.write('color', value.toString());
                   });
                 }),
             Radio(
@@ -75,7 +73,6 @@ class _SelectColorState extends ConsumerState<SelectColor> {
                   ref.read(colorProvider.notifier).setColor(value!);
                   setState(() {
                     _color = value;
-                    box.write('color', value.toString());
                   });
                 }),
           ],

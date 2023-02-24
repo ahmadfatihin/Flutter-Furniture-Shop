@@ -19,13 +19,6 @@ class DetailFlexibleSpace extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Map<ColorVariant, dynamic> imageVariant = {
-      ColorVariant.red: Assets.images.sofaRed.path,
-      ColorVariant.yellow: Assets.images.sofaYellow.path,
-      ColorVariant.grey: Assets.images.sofaGrey.path,
-      ColorVariant.orange: Assets.images.sofaOrange.path,
-      ColorVariant.purple: Assets.images.sofaPurple.path,
-    };
     final box = GetStorage();
     final color = ref.watch(colorProvider);
 
@@ -40,6 +33,7 @@ class DetailFlexibleSpace extends ConsumerWidget {
             bottom: 0,
             child: Hero(
               tag: title,
+              // Due to limitation of image and no backend, only sofaYellow that has color change, you can use CachedImageNetwork if the imageprovided in BE
               child: imagePath == Assets.images.sofaYellow.path
                   ? Image.asset(
                       imageVariant[color] ?? imagePath,

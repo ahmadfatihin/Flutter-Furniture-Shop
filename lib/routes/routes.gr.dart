@@ -17,10 +17,10 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    NavbarRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomeScreen(),
+        child: const NavbarScreen(),
       );
     },
     DetailRoute.name: (routeData) {
@@ -33,13 +33,59 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    HomeMenu.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
+      );
+    },
+    WishlistMenu.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const WishlistScreen(),
+      );
+    },
+    CartMenu.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CartScreen(),
+      );
+    },
+    ProfileMenu.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const ProfileScreen(),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          HomeRoute.name,
+          NavbarRoute.name,
           path: '/',
+          children: [
+            RouteConfig(
+              HomeMenu.name,
+              path: 'home',
+              parent: NavbarRoute.name,
+            ),
+            RouteConfig(
+              WishlistMenu.name,
+              path: 'wishlist',
+              parent: NavbarRoute.name,
+            ),
+            RouteConfig(
+              CartMenu.name,
+              path: 'cart',
+              parent: NavbarRoute.name,
+            ),
+            RouteConfig(
+              ProfileMenu.name,
+              path: 'profile',
+              parent: NavbarRoute.name,
+            ),
+          ],
         ),
         RouteConfig(
           DetailRoute.name,
@@ -49,15 +95,16 @@ class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [HomeScreen]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [NavbarScreen]
+class NavbarRoute extends PageRouteInfo<void> {
+  const NavbarRoute({List<PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
+          NavbarRoute.name,
           path: '/',
+          initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'NavbarRoute';
 }
 
 /// generated route for
@@ -92,4 +139,52 @@ class DetailRouteArgs {
   String toString() {
     return 'DetailRouteArgs{key: $key, cardData: $cardData}';
   }
+}
+
+/// generated route for
+/// [HomeScreen]
+class HomeMenu extends PageRouteInfo<void> {
+  const HomeMenu()
+      : super(
+          HomeMenu.name,
+          path: 'home',
+        );
+
+  static const String name = 'HomeMenu';
+}
+
+/// generated route for
+/// [WishlistScreen]
+class WishlistMenu extends PageRouteInfo<void> {
+  const WishlistMenu()
+      : super(
+          WishlistMenu.name,
+          path: 'wishlist',
+        );
+
+  static const String name = 'WishlistMenu';
+}
+
+/// generated route for
+/// [CartScreen]
+class CartMenu extends PageRouteInfo<void> {
+  const CartMenu()
+      : super(
+          CartMenu.name,
+          path: 'cart',
+        );
+
+  static const String name = 'CartMenu';
+}
+
+/// generated route for
+/// [ProfileScreen]
+class ProfileMenu extends PageRouteInfo<void> {
+  const ProfileMenu()
+      : super(
+          ProfileMenu.name,
+          path: 'profile',
+        );
+
+  static const String name = 'ProfileMenu';
 }

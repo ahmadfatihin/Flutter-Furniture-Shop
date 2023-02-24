@@ -17,7 +17,7 @@ class ColorNotifier extends StateNotifier<ColorVariant> {
     if (colorString != null) {
       return ColorVariant.values.firstWhere(
         (color) => color.toString().split('.').last == colorString,
-        orElse: () => ColorVariant.red,
+        orElse: () => ColorVariant.blue,
       );
     }
     return ColorVariant.red;
