@@ -12,6 +12,7 @@ class NavbarScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedIndex = ref.watch(selectedIndexProvider);
     return AutoTabsScaffold(
         extendBody: true,
         routes: const [
@@ -36,27 +37,72 @@ class NavbarScreen extends ConsumerWidget {
               type: BottomNavigationBarType.fixed,
               backgroundColor: white,
               showUnselectedLabels: true,
-              selectedItemColor: red,
-              unselectedItemColor: grey,
+              selectedItemColor: white,
+              unselectedItemColor: black,
               currentIndex: tabsRouter.activeIndex,
-              onTap: tabsRouter.setActiveIndex,
+              onTap: (index) {
+                ref
+                    .read(selectedIndexProvider.notifier)
+                    .updateSelectedIndex(index);
+                tabsRouter.setActiveIndex(index);
+              },
               items: [
                 BottomNavigationBarItem(
                   label: '',
-                  icon: ImageIcon(AssetImage(Assets.icons.navbarHome.path)),
+                  icon: Container(
+                      padding: const EdgeInsets.all(9),
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: selectedIndex == 0 ? grey : white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ImageIcon(
+                        AssetImage(Assets.icons.navbarHome.path),
+                      )),
                 ),
                 BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(
-                      AssetImage(Assets.icons.navbarCart.path),
-                    )),
+                  label: '',
+                  icon: Container(
+                      padding: const EdgeInsets.all(9),
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: selectedIndex == 1 ? grey : white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ImageIcon(
+                        AssetImage(Assets.icons.navbarCart.path),
+                      )),
+                ),
                 BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(AssetImage(Assets.icons.navbarStar.path))),
+                  label: '',
+                  icon: Container(
+                      padding: const EdgeInsets.all(9),
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: selectedIndex == 2 ? grey : white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ImageIcon(
+                        AssetImage(Assets.icons.navbarStar.path),
+                      )),
+                ),
                 BottomNavigationBarItem(
-                    label: '',
-                    icon:
-                        ImageIcon(AssetImage(Assets.icons.navbarPerson.path))),
+                  label: '',
+                  icon: Container(
+                      padding: const EdgeInsets.all(9),
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        color: selectedIndex == 3 ? grey : white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ImageIcon(
+                        AssetImage(Assets.icons.navbarPerson.path),
+                      )),
+                ),
               ],
             ),
           );
