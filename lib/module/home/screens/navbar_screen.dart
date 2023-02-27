@@ -23,6 +23,7 @@ class NavbarScreen extends ConsumerWidget {
         ],
         bottomNavigationBuilder: (_, tabsRouter) {
           return Container(
+            padding: EdgeInsets.zero,
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
@@ -32,10 +33,10 @@ class NavbarScreen extends ConsumerWidget {
               ),
             ),
             child: BottomNavigationBar(
-              iconSize: 30,
+              selectedFontSize: 0,
               elevation: 0,
               type: BottomNavigationBarType.fixed,
-              backgroundColor: white,
+              backgroundColor: white.withOpacity(0.7),
               showUnselectedLabels: true,
               selectedItemColor: white,
               unselectedItemColor: black,
@@ -54,7 +55,7 @@ class NavbarScreen extends ConsumerWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: selectedIndex == 0 ? grey : white,
+                        color: selectedIndex == 0 ? grey : Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: ImageIcon(
@@ -68,7 +69,7 @@ class NavbarScreen extends ConsumerWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: selectedIndex == 1 ? grey : white,
+                        color: selectedIndex == 1 ? grey : Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: ImageIcon(
@@ -82,7 +83,7 @@ class NavbarScreen extends ConsumerWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: selectedIndex == 2 ? grey : white,
+                        color: selectedIndex == 2 ? grey : Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: ImageIcon(
@@ -96,7 +97,7 @@ class NavbarScreen extends ConsumerWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: selectedIndex == 3 ? grey : white,
+                        color: selectedIndex == 3 ? grey : Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: ImageIcon(

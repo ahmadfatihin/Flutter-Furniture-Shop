@@ -62,7 +62,7 @@ class HomeRecommended extends StatelessWidget {
                 (MediaQuery.of(context).size.height / 1.75),
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 90),
             children: homeCardData.map((cardData) {
               return InkWell(
                 onTap: () {

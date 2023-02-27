@@ -32,23 +32,30 @@ class SelectQuantity extends ConsumerWidget {
                   onTap: () {
                     quantity.decrement();
                   },
-                  child: Icon(
-                    Icons.remove,
-                    color: grey,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Icon(
+                      Icons.remove,
+                      color: grey,
+                    ),
                   )),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                child: Text('$number'),
-              ),
+              Container(
+                  height: 32,
+                  width: 38,
+                  color: lightGrey,
+                  child: Center(child: Text('$number'))),
               InkWell(
                   splashColor: grey,
                   onTap: () {
                     quantity.increment();
                   },
-                  child: Icon(
-                    Icons.add,
-                    color: grey,
-                  ))
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Icon(
+                      Icons.add,
+                      color: grey,
+                    ),
+                  )),
             ],
           ),
         )
