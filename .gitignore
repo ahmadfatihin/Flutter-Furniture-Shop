@@ -22,3 +22,6 @@ doc/api/
 .vscode/launch.json
 .vscode/settings.json
 .flutter-plugins-dependencies
+.fvm/fvm_config.json
+.fvm/flutter_sdk
+.flutter-plugins
