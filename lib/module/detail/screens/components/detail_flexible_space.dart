@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/module/detail/providers/color_provider.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../enum/color_enum.dart';
@@ -19,7 +18,6 @@ class DetailFlexibleSpace extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final box = GetStorage();
     final color = ref.watch(colorProvider);
 
     return FlexibleSpaceBar(
@@ -33,7 +31,7 @@ class DetailFlexibleSpace extends ConsumerWidget {
             bottom: 0,
             child: Hero(
               tag: title,
-              // Due to limitation of image and no backend, only sofaYellow that has color change, you can use CachedImageNetwork if the imageprovided in BE
+              // Due to limitation of image and no backend, only sofaYellow Item that has color change, you can use CachedImageNetwork if the imageprovided in BE
               child: imagePath == Assets.images.sofaYellow.path
                   ? Image.asset(
                       imageVariant[color] ?? imagePath,

@@ -16,8 +16,6 @@ class HomeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final favoriteState = ref.read(favoriteProvider);
-    final favorite = ref.watch(favoriteProvider.notifier);
-    final isFavorite = favorite.isFavorite(cardData['title']);
     return Container(
       width: 185,
       height: 243,
@@ -29,7 +27,7 @@ class HomeCard extends ConsumerWidget {
             color: grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 3,
-            offset: Offset(1, 3),
+            offset: const Offset(1, 3),
           ),
         ],
       ),
@@ -73,7 +71,7 @@ class HomeCard extends ConsumerWidget {
                             height: 15,
                             width: 15,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
@@ -94,7 +92,7 @@ class HomeCard extends ConsumerWidget {
                 ref
                     .read(favoriteProvider.notifier)
                     .toggleFavorite(cardData['title']);
-                ref.refresh(favoriteProvider);
+                ref.invalidate(favoriteProvider);
                 showSnackBar(context, 'List Favorite: $favoriteState');
               },
               child: Container(
@@ -108,7 +106,7 @@ class HomeCard extends ConsumerWidget {
                       color: grey.withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 3,
-                      offset: Offset(1, 3),
+                      offset: const Offset(1, 3),
                     ),
                   ],
                 ),

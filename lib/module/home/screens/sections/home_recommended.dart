@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:furniture_shop/const/text.dart';
 import 'package:furniture_shop/module/home/screens/components/home_card.dart';
 import 'package:furniture_shop/routes/routes.dart';
@@ -62,7 +60,7 @@ class HomeRecommended extends StatelessWidget {
                 (MediaQuery.of(context).size.height / 1.75),
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
-            padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 90),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 90),
             children: homeCardData.map((cardData) {
               return InkWell(
                 onTap: () {

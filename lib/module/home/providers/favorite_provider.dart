@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -29,7 +31,7 @@ final favoriteProvider =
   try {
     savedFavorites = Set<String>.from(box.read('favorites') ?? []);
   } catch (e) {
-    print('Error reading favorites from GetStorage: $e');
+    log('Error reading favorites from GetStorage: $e' );
   }
 
   return FavoriteNotifier(savedFavorites);

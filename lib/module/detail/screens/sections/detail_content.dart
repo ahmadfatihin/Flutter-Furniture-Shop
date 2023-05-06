@@ -82,12 +82,12 @@ class DetailContent extends StatelessWidget {
                   SelectQuantity()
                 ],
               )),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Padding(
               padding: padding,
-              child: Text(
+              child: const Text(
                   "Curabitur commodo turpis id placerat mattis. Mauris euismod arcu id orci fringilla sodales. Proin congue eleifend ipsum, eleifend porttitor mi ullamcorper."))
         ],
       ),

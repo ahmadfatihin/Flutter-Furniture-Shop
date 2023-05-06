@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:furniture_shop/const/colors.dart';
 import 'package:furniture_shop/module/detail/providers/quantity_provider.dart';
@@ -16,7 +14,7 @@ class SelectQuantity extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Select Quantity :"),
+        const Text("Select Quantity :"),
         Container(
           decoration: BoxDecoration(
             border: Border.all(

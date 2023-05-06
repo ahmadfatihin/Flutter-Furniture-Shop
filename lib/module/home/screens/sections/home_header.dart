@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:furniture_shop/const/colors.dart';
 
 import '../../../../const/text.dart';
@@ -30,13 +28,13 @@ class _HomeHeaderState extends State<HomeHeader> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Text(
             'Discover the most \nmodern furniture',
             style: medium.copyWith(fontSize: 22),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         SingleChildScrollView(
