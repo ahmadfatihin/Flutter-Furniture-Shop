@@ -7,10 +7,9 @@ void showSnackBar(BuildContext context, String text) {
 }
 
 class CustomSnackBar extends SnackBar {
-  final Duration duration;
-
-  CustomSnackBar({
+  
+  const CustomSnackBar({super.key, 
     required Widget content,
-    this.duration = const Duration(seconds: 1),
+    Duration duration = const Duration(seconds: 1),
   }) : super(content: content, duration: duration);
 }

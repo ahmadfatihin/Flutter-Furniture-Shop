@@ -5,7 +5,7 @@ import 'package:furniture_shop/const/colors.dart';
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     radioTheme:
-        RadioThemeData(materialTapTargetSize: MaterialTapTargetSize.shrinkWrap),
+        const RadioThemeData(materialTapTargetSize: MaterialTapTargetSize.shrinkWrap),
     primaryColor: black,
     scaffoldBackgroundColor: whiteBackground,
     textTheme: GoogleFonts.openSansTextTheme(),
