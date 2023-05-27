@@ -16,111 +16,115 @@ class HomeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final favoriteState = ref.read(favoriteProvider);
-    return Container(
-      width: 185,
-      height: 243,
-      decoration: BoxDecoration(
-        borderRadius: kDefaultBorderRadius,
-        color: whiteBackground,
-        boxShadow: [
-          BoxShadow(
-            color: grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 3,
-            offset: const Offset(1, 3),
+    return Column(
+      children: [
+        Container(
+          width: 185,
+          height: 243,
+          decoration: BoxDecoration(
+            borderRadius: kDefaultBorderRadius,
+            color: whiteBackground,
+            boxShadow: [
+              BoxShadow(
+                color: grey.withOpacity(0.3),
+                spreadRadius: 2,
+                blurRadius: 3,
+                offset: const Offset(1, 3),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Hero(
-            tag: cardData['title'],
-            child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    topLeft: Radius.circular(20)),
-                child: Image.asset(
-                  cardData['imagePath'],
-                  width: 200,
-                  height: 145,
-                  fit: BoxFit.cover,
-                )),
-          ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    cardData['title'],
-                    style: medium.copyWith(fontSize: 14),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 10, right: 10, bottom: 10, top: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(cardData['price']),
-                      Row(
+          child: Stack(
+            children: [
+              Hero(
+                tag: cardData['title'],
+                child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        topLeft: Radius.circular(20)),
+                    child: Image.asset(
+                      cardData['imagePath'],
+                      width: 200,
+                      height: 145,
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        cardData['title'],
+                        style: medium.copyWith(fontSize: 14),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 10, bottom: 10, top: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset(
-                            Assets.icons.star.path,
-                            height: 15,
-                            width: 15,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            cardData['rating'].toString(),
-                            style: regular.copyWith(fontSize: 12),
+                          Text(cardData['price']),
+                          Row(
+                            children: [
+                              Image.asset(
+                                Assets.icons.star.path,
+                                height: 15,
+                                width: 15,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                cardData['rating'].toString(),
+                                style: regular.copyWith(fontSize: 12),
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
-                  ),
-                )
-              ]),
-          Positioned(
-            left: 10,
-            top: 10,
-            child: InkWell(
-              onTap: () {
-                ref
-                    .read(favoriteProvider.notifier)
-                    .toggleFavorite(cardData['title']);
-                ref.invalidate(favoriteProvider);
-                showSnackBar(context, 'List Favorite: $favoriteState');
-              },
-              child: Container(
-                height: 34,
-                width: 34,
-                decoration: BoxDecoration(
-                  borderRadius: kDefaultBorderRadius / 2,
-                  color: white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: grey.withOpacity(0.3),
-                      spreadRadius: 2,
-                      blurRadius: 3,
-                      offset: const Offset(1, 3),
+                      ),
+                    )
+                  ]),
+              Positioned(
+                left: 10,
+                top: 10,
+                child: InkWell(
+                  onTap: () {
+                    ref
+                        .read(favoriteProvider.notifier)
+                        .toggleFavorite(cardData['title']);
+                    ref.invalidate(favoriteProvider);
+                    showSnackBar(context, 'List Favorite: $favoriteState');
+                  },
+                  child: Container(
+                    height: 34,
+                    width: 34,
+                    decoration: BoxDecoration(
+                      borderRadius: kDefaultBorderRadius / 2,
+                      color: white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 3,
+                          offset: const Offset(1, 3),
+                        ),
+                      ],
                     ),
-                  ],
+                    child: Icon(
+                      favoriteState.contains(cardData['title'])
+                          ? Icons.favorite
+                          : Icons.favorite_outline_rounded,
+                      color: red,
+                    ),
+                  ),
                 ),
-                child: Icon(
-                  favoriteState.contains(cardData['title'])
-                      ? Icons.favorite
-                      : Icons.favorite_outline_rounded,
-                  color: red,
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
