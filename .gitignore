@@ -25,3 +25,4 @@ doc/api/
 .fvm/fvm_config.json
 .fvm/flutter_sdk
 .flutter-plugins
+pubspec.yaml
